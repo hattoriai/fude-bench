@@ -1,0 +1,126 @@
+{
+  "assets": [
+    {
+      "bytes": 126852,
+      "gzip_bytes": 41756,
+      "lib": "fude",
+      "name": "Fude",
+      "version": "0.8.0"
+    },
+    {
+      "bytes": 839375,
+      "gzip_bytes": 282806,
+      "lib": "vega_lite",
+      "name": "VegaLite",
+      "version": "0.1.11"
+    },
+    {
+      "bytes": 0,
+      "gzip_bytes": 0,
+      "lib": "contex",
+      "name": "Contex",
+      "version": "0.5.0"
+    },
+    {
+      "bytes": 795243,
+      "gzip_bytes": 225890,
+      "lib": "live_charts",
+      "name": "LiveCharts (ApexCharts)",
+      "version": "0.5.0"
+    }
+  ],
+  "charts": [
+    {
+      "case": "scatter",
+      "html_bytes": 15705,
+      "html_gzip_bytes": 5973,
+      "lib": "fude",
+      "render_ms": 4.548
+    },
+    {
+      "case": "lines",
+      "html_bytes": 89988,
+      "html_gzip_bytes": 14400,
+      "lib": "fude",
+      "render_ms": 16.915
+    },
+    {
+      "case": "bars",
+      "html_bytes": 7072,
+      "html_gzip_bytes": 1867,
+      "lib": "fude",
+      "render_ms": 1.049
+    },
+    {
+      "case": "scatter",
+      "html_bytes": 78165,
+      "html_gzip_bytes": 8400,
+      "lib": "vega_lite",
+      "render_ms": 3.574
+    },
+    {
+      "case": "lines",
+      "html_bytes": 410701,
+      "html_gzip_bytes": 24537,
+      "lib": "vega_lite",
+      "render_ms": 27.405
+    },
+    {
+      "case": "bars",
+      "html_bytes": 12808,
+      "html_gzip_bytes": 1332,
+      "lib": "vega_lite",
+      "render_ms": 0.298
+    },
+    {
+      "case": "scatter",
+      "html_bytes": 84150,
+      "html_gzip_bytes": 11641,
+      "lib": "contex",
+      "render_ms": 2.33
+    },
+    {
+      "case": "lines",
+      "html_bytes": 178378,
+      "html_gzip_bytes": 63947,
+      "lib": "contex",
+      "render_ms": 20.021
+    },
+    {
+      "case": "bars",
+      "html_bytes": 65504,
+      "html_gzip_bytes": 4643,
+      "lib": "contex",
+      "render_ms": 2.666
+    },
+    {
+      "case": "scatter",
+      "html_bytes": 14422,
+      "html_gzip_bytes": 6031,
+      "lib": "live_charts",
+      "render_ms": 0.465
+    },
+    {
+      "case": "lines",
+      "html_bytes": 88648,
+      "html_gzip_bytes": 21814,
+      "lib": "live_charts",
+      "render_ms": 3.873
+    },
+    {
+      "case": "bars",
+      "html_bytes": 5322,
+      "html_gzip_bytes": 1094,
+      "lib": "live_charts",
+      "render_ms": 0.079
+    }
+  ],
+  "env": {
+    "date": "2026-10-28",
+    "elixir": "1.18.4",
+    "fude": "checkout at f9a23f0",
+    "otp": "25",
+    "schedulers": 4,
+    "system": "x86_64-pc-linux-gnu"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "fude-bench-browser",
+  "private": true,
+  "type": "module",
+  "description": "Vega's builds for the VegaLite pages, and the Playwright runner.",
+  "dependencies": {
+    "vega": "6.4.0",
+    "vega-embed": "7.3.0",
+    "vega-lite": "6.5.0"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}

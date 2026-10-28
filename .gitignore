@@ -1,0 +1,5 @@
+/_build/
+/deps/
+/browser/node_modules/
+erl_crash.dump
+/results/screenshots/
