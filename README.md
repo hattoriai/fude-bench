@@ -10,7 +10,62 @@ way in the same app:
 | [Contex](https://hex.pm/packages/contex) | SVG drawn on the server, sent in the HTML |
 | [LiveCharts](https://hex.pm/packages/live_charts) | An ApexCharts config built on the server; ApexCharts (bundled) draws it in the package's hook (SVG) |
 
-The latest results are in [results/REPORT.md](results/REPORT.md).
+## Results
+
+Run on 2026-10-28 with Fude at
+[`28f770b`](https://github.com/hattoriai/fude/commit/28f770b) (`main`),
+VegaLite 0.1.11 (Vega-Lite 6.5, Vega 6.4), Contex 0.5.0 and LiveCharts
+0.5.0 (ApexCharts 6.5.0); Chromium 153, the median of 7 runs, served from
+localhost. Every table, and the server's times, are in
+[results/REPORT.md](results/REPORT.md).
+
+**What each library loads** (JS and CSS, gzipped; Phoenix and LiveView
+not counted):
+
+| Fude | VegaLite | Contex | LiveCharts |
+| --- | --- | --- | --- |
+| 44.3 KB | 276.2 KB | none (SVG from the server) | 220.6 KB |
+
+**In the browser**: when the last chart is painted, main-thread time
+blocked, JS heap, and an update of the data (time, and bytes over the
+LiveView socket).
+
+| Case | Library | Drawn | Blocking | Heap | DOM | Update | Update bytes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Scatter, 1,000 points | Fude | 134 ms | 0 ms | 2.1 MB | 65 | 21 ms | 14.2 KB |
+| | VegaLite | 271 ms | 78 ms | 6.3 MB | 1,176 | 72 ms | 76.4 KB |
+| | Contex | 52 ms | 0 ms | 1.9 MB | 1,091 | 42 ms | 90.6 KB |
+| | LiveCharts | 198 ms | 49 ms | 3.1 MB | 1,230 | 64 ms | 13.7 KB |
+| Lines, 4 × 1,000 days | Fude | 167 ms | 0 ms | 2.4 MB | 70 | 49 ms | 35.4 KB |
+| | VegaLite | 340 ms | 96 ms | 8.3 MB | 184 | 111 ms | 401.1 KB |
+| | Contex | 100 ms | 0 ms | 2.1 MB | 82 | 42 ms | 174.6 KB |
+| | LiveCharts | 185 ms | 25 ms | 3.3 MB | 236 | 37 ms | 86.2 KB |
+| Bars, 200 | Fude | 117 ms | 0 ms | 2.1 MB | 57 | 14 ms | 6.7 KB |
+| | VegaLite | 215 ms | 38 ms | 5.1 MB | 676 | 38 ms | 12.6 KB |
+| | Contex | 44 ms | 0 ms | 1.8 MB | 1,056 | 32 ms | 69.7 KB |
+| | LiveCharts | 209 ms | 81 ms | 3.2 MB | 1,112 | 30 ms | 0.7 KB |
+| Dashboard, 12 charts | Fude | 221 ms | 41 ms | 2.7 MB | 562 | 51 ms | 36.3 KB |
+| | VegaLite | 439 ms | 231 ms | 13.1 MB | 1,866 | 167 ms | 128.2 KB |
+| | Contex | 68 ms | 4 ms | 1.9 MB | 1,619 | 54 ms | 137.3 KB |
+| | LiveCharts | 334 ms | 179 ms | 5.2 MB | 2,659 | 84 ms | 24.9 KB |
+
+What they show:
+
+* **Contex is on the screen first**: its SVG is in the page's HTML, drawn
+  before LiveView connects. It sends the most (the whole SVG in the page,
+  the join and every update) and has the largest DOM.
+* **Of the libraries that draw in the browser, Fude draws first** and
+  blocks the main thread least, with the smallest heap and DOM: it loads
+  a sixth of the JavaScript, and the server has done the work (scales,
+  aggregates) that Vega and ApexCharts do in the page.
+* **What an update sends** depends on how the library takes new data.
+  LiveCharts pushes only the new series (`push_update`), so 200 bars are
+  0.7 KB; Fude and Contex render again and send the chart that changed,
+  Fude's long columns packed (35 KB for 4,000 points, against Vega-Lite's
+  401 KB).
+
+Times are on one machine and change from run to run by about ten percent;
+compare the libraries within a run, not runs with each other.
 
 ## Running
 

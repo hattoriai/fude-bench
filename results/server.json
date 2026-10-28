@@ -1,8 +1,8 @@
 {
   "assets": [
     {
-      "bytes": 126852,
-      "gzip_bytes": 41756,
+      "bytes": 138597,
+      "gzip_bytes": 45388,
       "lib": "fude",
       "name": "Fude",
       "version": "0.8.0"
@@ -32,93 +32,93 @@
   "charts": [
     {
       "case": "scatter",
-      "html_bytes": 15705,
-      "html_gzip_bytes": 5973,
+      "html_bytes": 14486,
+      "html_gzip_bytes": 5824,
       "lib": "fude",
-      "render_ms": 4.548
+      "render_ms": 4.238
     },
     {
       "case": "lines",
-      "html_bytes": 89988,
-      "html_gzip_bytes": 14400,
+      "html_bytes": 36219,
+      "html_gzip_bytes": 8959,
       "lib": "fude",
-      "render_ms": 16.915
+      "render_ms": 15.857
     },
     {
       "case": "bars",
-      "html_bytes": 7072,
-      "html_gzip_bytes": 1867,
+      "html_bytes": 6841,
+      "html_gzip_bytes": 1501,
       "lib": "fude",
-      "render_ms": 1.049
+      "render_ms": 0.739
     },
     {
       "case": "scatter",
       "html_bytes": 78165,
       "html_gzip_bytes": 8400,
       "lib": "vega_lite",
-      "render_ms": 3.574
+      "render_ms": 2.294
     },
     {
       "case": "lines",
       "html_bytes": 410701,
       "html_gzip_bytes": 24537,
       "lib": "vega_lite",
-      "render_ms": 27.405
+      "render_ms": 19.219
     },
     {
       "case": "bars",
       "html_bytes": 12808,
       "html_gzip_bytes": 1332,
       "lib": "vega_lite",
-      "render_ms": 0.298
+      "render_ms": 0.435
     },
     {
       "case": "scatter",
       "html_bytes": 84150,
       "html_gzip_bytes": 11641,
       "lib": "contex",
-      "render_ms": 2.33
+      "render_ms": 1.723
     },
     {
       "case": "lines",
       "html_bytes": 178378,
       "html_gzip_bytes": 63947,
       "lib": "contex",
-      "render_ms": 20.021
+      "render_ms": 15.312
     },
     {
       "case": "bars",
       "html_bytes": 65504,
       "html_gzip_bytes": 4643,
       "lib": "contex",
-      "render_ms": 2.666
+      "render_ms": 2.54
     },
     {
       "case": "scatter",
       "html_bytes": 14422,
       "html_gzip_bytes": 6031,
       "lib": "live_charts",
-      "render_ms": 0.465
+      "render_ms": 0.356
     },
     {
       "case": "lines",
       "html_bytes": 88648,
       "html_gzip_bytes": 21814,
       "lib": "live_charts",
-      "render_ms": 3.873
+      "render_ms": 5.026
     },
     {
       "case": "bars",
       "html_bytes": 5322,
       "html_gzip_bytes": 1094,
       "lib": "live_charts",
-      "render_ms": 0.079
+      "render_ms": 0.121
     }
   ],
   "env": {
     "date": "2026-10-28",
     "elixir": "1.18.4",
-    "fude": "checkout at f9a23f0",
+    "fude": "checkout at 28f770b",
     "otp": "25",
     "schedulers": 4,
     "system": "x86_64-pc-linux-gnu"
